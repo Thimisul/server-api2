@@ -1,0 +1,148 @@
+{
+  "clients": [
+    {
+      "id": "5faa9a215aec4813baaac436",
+      "cpf": "551.540.497-91",
+      "name": "João Miguel Reis",
+      "birthday": "2008-09-22T11:47:46.393Z",
+      "cep": "60210-550",
+      "street": "Carvalho Avenida",
+      "number": "46476",
+      "district": " do Norte",
+      "city": "Silva de Nossa Senhora",
+      "complement": ""
+    },
+    {
+      "id": "a6e7425be02b0d30ebfcb76a",
+      "cpf": "052.586.386-44",
+      "name": "Sr. Júlia Batista",
+      "birthday": "2006-12-26T12:07:41.152Z",
+      "cep": "30648-525",
+      "street": "Célia Rodovia",
+      "number": "4671",
+      "district": " do Norte",
+      "city": "Paula do Sul",
+      "complement": ""
+    },
+    {
+      "id": "a533fdc1ec66f6a34eddd368",
+      "cpf": "393.497.436-06",
+      "name": "Srta. Cecília Costa",
+      "birthday": "2007-10-17T07:36:41.645Z",
+      "cep": "95447-050",
+      "street": "Samuel Rodovia",
+      "number": "2848",
+      "district": " do Norte",
+      "city": "undefined Elísio",
+      "complement": ""
+    },
+    {
+      "id": "7d243d17de36bddd6fa6a6fc",
+      "cpf": "987.287.148-17",
+      "name": "Warley Albuquerque",
+      "birthday": "2020-12-24T16:11:25.108Z",
+      "cep": "68733-675",
+      "street": "Pablo Alameda",
+      "number": "9027",
+      "district": " do Sul",
+      "city": "Suffolk",
+      "complement": ""
+    },
+    {
+      "id": "6fe6daee49e2f87fc833fddc",
+      "cpf": "042.560.723-83",
+      "name": "Margarida Souza",
+      "birthday": "2016-11-26T21:00:04.332Z",
+      "cep": "17348-627",
+      "street": "Santos Avenida",
+      "number": "1423",
+      "district": " de Nossa Senhora",
+      "city": "Reis de Nossa Senhora",
+      "complement": ""
+    },
+    {
+      "id": "fa71eee45f8a238bcbcac1fa",
+      "cpf": "347.304.553-16",
+      "name": "Enzo Batista",
+      "birthday": "2012-11-18T04:26:47.039Z",
+      "cep": "54987-390",
+      "street": "Reis Travessa",
+      "number": "7562",
+      "district": " do Sul",
+      "city": "Souza do Sul",
+      "complement": ""
+    }
+  ],
+  "employees": [
+    {
+      "id": "bc742eef6043948a041a6e5f",
+      "cpf": "873.744.675-40",
+      "name": "Feliciano Batista",
+      "birthday": "2021-10-27T06:00:39.427Z",
+      "services": [
+        "Cabelereiro",
+        "Manicure"
+      ]
+    },
+    {
+      "id": "80f2bfbd3dadc653e6794c86",
+      "cpf": "691.652.745-40",
+      "name": "Heitor Oliveira Filho",
+      "birthday": "2010-12-25T00:24:16.404Z",
+      "services": [
+        "Cabelereiro",
+        "Manicure"
+      ]
+    },
+    {
+      "id": "3deb15c8fceda60fbefc69ba",
+      "cpf": "517.626.419-40",
+      "name": "Cauã Martins",
+      "birthday": "2021-12-26T21:52:19.315Z",
+      "services": [
+        "Cabelereiro",
+        "Manicure"
+      ]
+    },
+    {
+      "id": "3d9d84f0eaa6af5beac4b0c4",
+      "cpf": "112.238.981-40",
+      "name": "Elisa Souza",
+      "birthday": "2013-02-28T06:40:35.543Z",
+      "services": [
+        "Cabelereiro",
+        "Manicure"
+      ]
+    },
+    {
+      "id": "9d50aed9f61cde39fbc8b3aa",
+      "cpf": "715.575.477-40",
+      "name": "Suélen Silva",
+      "birthday": "2019-02-27T10:47:36.497Z",
+      "services": [
+        "Cabelereiro",
+        "Manicure"
+      ]
+    },
+    {
+      "id": "a3c0fadec4dadee09aefab4b",
+      "cpf": "361.573.599-40",
+      "name": "Alexandre Carvalho",
+      "birthday": "2006-01-18T04:01:10.913Z",
+      "services": [
+        "Cabelereiro",
+        "Manicure"
+      ]
+    },
+    {
+      "id": "caab6642da7aebe0ffb70f5e",
+      "cpf": "060.628.852-40",
+      "name": "Eduarda Moraes",
+      "birthday": "2002-06-07T16:55:46.784Z",
+      "services": [
+        "Cabelereiro",
+        "Manicure"
+      ]
+    }
+  ]
+}

@@ -2,5 +2,5 @@
     "watch": ["src"],
     "ext": ".ts,.js",
     "ignore": [],
-    "exec": "ts-node ./src/index.ts  && json-server --watch db.json --port 3004"
+    "exec": "ts-node ./src/index.ts  && json-server --host 192.168.2.199 --watch db.json --port 3004"
   }
