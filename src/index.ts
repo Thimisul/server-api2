@@ -5,7 +5,6 @@ import { parseISO } from 'date-fns'
 
 
 
-
 /* Generate Variable */
 // const generateVariable = (number: number) => {
 //     const Variable = [];
@@ -18,7 +17,6 @@ import { parseISO } from 'date-fns'
 //     }
 //   return Variable;
 // }
-
 
 // Generate Variable */
 const generateClients = (number: number) => {
