@@ -5,8 +5,8 @@ export type SchedulesType = {
     client: ClientsType,
     service: ServicesSaloonType,
     employee: EmployeesType
-    start: Date,
-    end: Date
+    start: string,
+    end?: string
 }
 
 export default SchedulesType

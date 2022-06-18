@@ -1,7 +1,7 @@
 export type ServicesSaloonType = {
     id?: string;
     name: string,
-    duration: string,
+    duration: number,
     price: string
   }
   
