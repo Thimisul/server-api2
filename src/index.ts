@@ -127,7 +127,7 @@ const schedules = generateSchedules(10)
 
 const generateCashiers = () :CashiersType[] => {
   let cashiers: CashiersType[] = [];
-  let price = 0;
+  let price: number
   let agreement: AgreementsType | undefined
   let status: "AGENDADO" | "ABERTO" | "PAGO" = "AGENDADO"
   let dateString: string | undefined
