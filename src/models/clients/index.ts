@@ -1,3 +1,5 @@
+import AgreementsType from "../agreements"
+
 export type ClientType = {
     id?: string,
     cpf: string
@@ -9,6 +11,7 @@ export type ClientType = {
     district: string;
     city: string;
     complement: string
+    agreement?: AgreementsType
   }
 
   export default ClientType

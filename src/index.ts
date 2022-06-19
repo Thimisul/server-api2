@@ -1,5 +1,5 @@
 import faker from '@faker-js/faker/locale/pt_BR';
-import { ClientsType, EmployeesType, SchedulesType, ServicesSaloonType } from './models/index';
+import { AgreementsType, ClientsType, EmployeesType, SchedulesType, ServicesSaloonType } from './models/index';
 const fs = require("fs");
 import { parseISO } from 'date-fns'
 
@@ -19,25 +19,6 @@ import { parseISO } from 'date-fns'
 // }
 
 // Generate Variable */
-const generateClients = (number: number) => {
-    const clients: ClientsType[] = [];
-    for (let i = 0; i < number; i++) {
-        clients.push({
-            id: faker.unique(faker.database.mongodbObjectId),
-            cpf: faker.phone.phoneNumber('###.###.###-##'),
-            name: faker.name.findName(),
-            birthday: faker.date.past(20),
-            cep: faker.address.zipCode('#####-###'),
-            street: faker.address.streetName(),
-            number: faker.address.buildingNumber(),
-            district: faker.address.citySuffix(),
-            city: faker.address.city(),
-            complement: ''
-        })
-    }
-    return clients
-}
-const clients = generateClients(10)
 
 const generateservicesSaloon = (servicesName: Array<string>) => {
     const servicesSaloon: ServicesSaloonType[] = [];
@@ -57,13 +38,13 @@ const servicesSaloon = generateservicesSaloon(
 
 
 const generateEmployers = (number: number) => {
-    const Employers: EmployeesType[] = [];
+    const employers: EmployeesType[] = [];
     for (let i = 0; i < number; i++) {
         let employeesServices: ServicesSaloonType[] = []
         for (let j = 0; j < Math.floor(Math.random() * 3) + 1; j++) {
             employeesServices.push(servicesSaloon[Math.floor(Math.random() * servicesSaloon.length)])
         }
-        Employers.push({
+        employers.push({
             id: faker.unique(faker.database.mongodbObjectId),
             cpf: faker.phone.phoneNumber('###.###.###-40'),
             name: faker.name.findName(),
@@ -71,9 +52,57 @@ const generateEmployers = (number: number) => {
             services: employeesServices,
         })
     }
-    return Employers;
+    return employers;
 }
 const employees = generateEmployers(4)
+
+const generateAgreements = (number: number) => {
+  const agreements: AgreementsType[] = [];
+  for (let i = 0; i < number; i++) {
+      let agreementsServices: ServicesSaloonType[] = []
+      for (let j = 0; j < Math.floor(Math.random() * 3) + 1; j++) {
+        agreementsServices.push(servicesSaloon[Math.floor(Math.random() * servicesSaloon.length)])
+      }
+      agreements.push({
+          id: faker.unique(faker.database.mongodbObjectId),
+          cnpj: faker.phone.phoneNumber('##.###.###-0001/##'),
+          fantasyName: faker.name.jobTitle(),
+          corporateName: faker.name.jobArea(),
+          cep: faker.address.zipCode('#####-###'),
+          street: faker.address.streetName(),
+          number: faker.address.buildingNumber(),
+          district: faker.address.citySuffix(),
+          city: faker.address.city(),
+          complement: '',
+          discount: faker.phone.phoneNumber('##'),
+          state: faker.address.state(),
+          services: agreementsServices
+      })
+  }
+  return agreements
+}
+const agreements = generateAgreements(10)
+
+const generateClients = (number: number) => {
+  const clients: ClientsType[] = [];
+  for (let i = 0; i < number; i++) {
+      clients.push({
+          id: faker.unique(faker.database.mongodbObjectId),
+          cpf: faker.phone.phoneNumber('###.###.###-##'),
+          name: faker.name.findName(),
+          birthday: faker.date.past(20),
+          cep: faker.address.zipCode('#####-###'),
+          street: faker.address.streetName(),
+          number: faker.address.buildingNumber(),
+          district: faker.address.citySuffix(),
+          city: faker.address.city(),
+          complement: '',
+          agreement: agreements[Math.floor(Math.random() * agreements.length + 4)]
+      })
+  }
+  return clients
+}
+const clients = generateClients(10)
 
 const generateSchedules = (number: number) => {
     const schedules: SchedulesType[] = [];
@@ -103,6 +132,7 @@ fs.writeFileSync(
         clients: clients,
         servicesSaloons: servicesSaloon,
         employees: employees,
+        agreements: agreements,
         schedules: schedules
     })
 );
