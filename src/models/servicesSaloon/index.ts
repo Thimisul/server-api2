@@ -2,7 +2,7 @@ export type ServicesSaloonType = {
     id?: string;
     name: string,
     duration: number,
-    price: string
+    price: number
   }
   
   export default ServicesSaloonType

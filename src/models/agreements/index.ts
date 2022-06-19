@@ -5,7 +5,7 @@ export type AgreementsType = {
     fantasyName: string,
     corporateName: string
     cnpj: string
-    discount: string,
+    discount: number,
     city: string,
     state: string,
     street: string,

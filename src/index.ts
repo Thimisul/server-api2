@@ -1,5 +1,5 @@
 import faker from '@faker-js/faker/locale/pt_BR';
-import { AgreementsType, ClientsType, EmployeesType, SchedulesType, ServicesSaloonType } from './models/index';
+import { AgreementsType, CashiersType, ClientsType, EmployeesType, SchedulesType, ServicesSaloonType } from './models';
 const fs = require("fs");
 import { parseISO } from 'date-fns'
 
@@ -28,7 +28,7 @@ const generateservicesSaloon = (servicesName: Array<string>) => {
             id: faker.unique(faker.database.mongodbObjectId),
             name: servicesName[i],
             duration: servicesDuration[Math.floor(Math.random() * servicesDuration.length)],
-            price: faker.commerce.price(50, 300),
+            price: parseFloat(faker.commerce.price(50, 300)),
         })
     }
     return servicesSaloon;
@@ -74,7 +74,7 @@ const generateAgreements = (number: number) => {
           district: faker.address.citySuffix(),
           city: faker.address.city(),
           complement: '',
-          discount: faker.phone.phoneNumber('##'),
+          discount: parseInt(faker.phone.phoneNumber('##')),
           state: faker.address.state(),
           services: agreementsServices
       })
@@ -123,7 +123,49 @@ const generateSchedules = (number: number) => {
     }
     return schedules;
 }
-const schedules = generateSchedules(1)
+const schedules = generateSchedules(10)
+
+const generateCashiers = () :CashiersType[] => {
+  let cashiers: CashiersType[] = [];
+  let price = 0;
+  let agreement: AgreementsType | undefined
+  let status: "AGENDADO" | "ABERTO" | "PAGO" = "AGENDADO"
+  let dateString: string | undefined
+
+  schedules.forEach((schedule) => {
+    let dateArray = [new Date(schedule.end!),undefined] //prerarar array pago no dia end ou undefined
+    if(schedule.end && new Date(schedule.end).getTime() < Date.now()) {
+      let date = dateArray[Math.floor(Math.random() * dateArray.length)]
+     if (date != undefined) 
+        dateString =  date.toISOString() 
+      if(dateString){
+        status = "PAGO"
+      }else {
+        status = "ABERTO"
+      }
+    }
+    if(schedule.client.agreement){
+      agreement = agreements.find(agreement => agreement.id === schedule.client.agreement?.id)
+      if(agreement){
+        price = schedule.service.price * agreement.discount / 100
+      }else {
+        price = schedule.service.price
+      } 
+    } 
+    
+    cashiers.push({
+      id: faker.unique(faker.database.mongodbObjectId),
+      schedule: schedule,
+      price: price,
+      date: dateString ?? undefined,
+      status: status    
+    })
+  })
+  
+  return cashiers
+}
+
+const cashiers = generateCashiers()
 
 
 fs.writeFileSync(
@@ -133,6 +175,7 @@ fs.writeFileSync(
         servicesSaloons: servicesSaloon,
         employees: employees,
         agreements: agreements,
-        schedules: schedules
+        schedules: schedules,
+        cashiers: cashiers
     })
 );
